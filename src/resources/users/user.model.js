@@ -4,12 +4,6 @@ const uuid = require('uuid');
 
 const userSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      default: uuid,
-      required: true
-    },
-
     login: {
       type: String,
       required: true,
