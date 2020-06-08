@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 
 const cardSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      required: true
-    },
     content: String,
     columnId: {
         type: String,
@@ -18,10 +14,6 @@ const cardSchema = new mongoose.Schema(
 
 const cardListSchema = new mongoose.Schema(
     {
-        _id: {
-            type: String,
-            required: true
-        },
         todoListId: {
             type: String,
             required: true

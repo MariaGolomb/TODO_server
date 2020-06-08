@@ -3,9 +3,6 @@ const usersRepo = require('./user.db.repository');
 const { hashPassword } = require('../../authentication/processPassword');
 const createError = require('http-errors');
 
-
-// const usersRepo = require('./user.db.repository');
-
 const createUser = async (params) => {
       params.password = await hashPassword(params.password);
       const newUser = await usersRepo.createUser(params);
@@ -27,7 +24,7 @@ const updateUser = async (login, params) => {
         params.password = await hashPassword(params.password);
         const user = await usersRepo.updateUser(login, params);
         if (!user) {
-            throw createError(500, `Can't update user with ID ${id}`);
+            throw createError(500, `Can't update user with login ${login}`);
           }
         return user;
 };

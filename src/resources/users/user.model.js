@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 const mongoose = require('mongoose');
-const uuid = require('uuid');
 
 const userSchema = new mongoose.Schema(
   {
