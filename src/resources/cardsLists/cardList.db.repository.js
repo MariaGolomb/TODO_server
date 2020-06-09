@@ -9,7 +9,7 @@ const getCardListById = async (id) => {
 };
 
 const updateCardList = (id, data) => {
-  return cardList.update({ _id: id }, data);
+  return cardList.updateOne({ _id: id }, data, { upsert: true }).exec();
 };
 
 const getCardListByTodoListId = (id) => {
@@ -20,5 +20,5 @@ module.exports = {
   createCardList,
   getCardListById,
   updateCardList,
-  getCardListByTodoListId,
+  getCardListByTodoListId
 };

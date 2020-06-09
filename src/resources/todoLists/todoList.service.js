@@ -31,7 +31,7 @@ const updateTodoList = async (id, params) => {
   result.todoList = todoList;
 
   if (params.cardList) {
-    const cardList = await cardListService.handleCardList(params.cardList);
+    const cardList = await cardListService.updateCardList(params.cardList);
     result.cardList = cardList;
   }
   return result;
@@ -47,9 +47,24 @@ const deleteTodoList = async (id) => {
   return isDeleted;
 };
 
+const addNewColumn = async (listId, columnData) => {
+  return await todoListRepo.addNewColumn(listId, columnData);
+};
+
+const deleteColumn = async (listId, columnId) => {
+  return await todoListRepo.deleteColumn(listId, columnId);
+};
+
+const updateColumn = async (listId, columnData) => {
+  return await todoListRepo.updateColumn(listId, columnData);
+};
+
 module.exports = {
   createTodoList,
   deleteTodoList,
   getTodoListById,
   updateTodoList,
+  addNewColumn,
+  deleteColumn,
+  updateColumn,
 };

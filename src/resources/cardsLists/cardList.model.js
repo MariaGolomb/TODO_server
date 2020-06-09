@@ -1,16 +1,6 @@
 /* eslint-disable prettier/prettier */
 const mongoose = require('mongoose');
-
-const cardSchema = new mongoose.Schema(
-  {
-    content: String,
-    columnId: {
-        type: String,
-        required: true
-    }
-  },
-  { versionKey: false }
-);
+const card = require('../card/сard.model');
 
 const cardListSchema = new mongoose.Schema(
     {
@@ -18,7 +8,7 @@ const cardListSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        cards: [cardSchema]
+        cards: [card.cardSchema]
     },
     { versionKey: false }
 );

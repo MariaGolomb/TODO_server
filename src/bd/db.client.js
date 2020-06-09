@@ -7,7 +7,8 @@ const connectToDb = async (serverListeningCB) => {
     mongoose.connect(MONGO_CONNECTION_STRING, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true
+      useCreateIndex: true,
+      useFindAndModify: false
     });
 
     const db = mongoose.connection;

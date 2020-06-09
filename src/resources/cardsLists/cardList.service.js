@@ -10,7 +10,7 @@ const updateCardList = async (id, data) => {
 };
 
 const handleCardList = async (data) => {
-  const id = data.id;
+  const id = data._id;
   const cardListToUpdate = await cardListRepo.getCardListById(id);
   if (cardListToUpdate) {
     await updateCardList(id, data);
@@ -26,6 +26,5 @@ const getCardListByTodoListId = async (id) => {
 module.exports = {
   createCardList,
   updateCardList,
-  handleCardList,
   getCardListByTodoListId,
 };

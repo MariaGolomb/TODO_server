@@ -1,15 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 const mongoose = require('mongoose');
-const columnSchema = new mongoose.Schema(
-    {
-        title: {
-            type: String,
-            default: 'New Column'
-        }
-    },
-    { versionKey: false }
-);
+const column = require('../column/column.model');
 
 const todoListSchema = new mongoose.Schema(
     {
@@ -17,7 +9,7 @@ const todoListSchema = new mongoose.Schema(
             type: String,
             default: 'USER_ID'
         },
-        columns: [columnSchema]
+        columns: [column.columnSchema]
 },
 { versionKey: false }
 );
