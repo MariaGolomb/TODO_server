@@ -2,15 +2,14 @@ const todoListRepo = require('./todoList.db.repository');
 const createError = require('http-errors');
 const cardListService = require('../cardsLists/cardList.service');
 
-const createTodoList = async (params) => {
+const createTodoList = async () => {
   const result = {};
-  const todoList = await todoListRepo.createTodoList(params.todoList);
+  const todoList = await todoListRepo.createTodoList();
   result.todoList = todoList;
-
-  if (params.cardList) {
-    const cardList = await cardListService.createCardList(params.cardList);
-    result.cardList = cardList;
-  }
+  const cardList = await cardListService.createCardList({
+    todoListId: result.todoList._id,
+  });
+  result.cardList = cardList;
   return result;
 };
 
@@ -43,20 +42,27 @@ const deleteTodoList = async (id) => {
   if (!isDeleted) {
     throw createError(404, `Can't find todoList with id ${id}`);
   }
+  cardListService.deleteCardListByTodoListId(id);
 
   return isDeleted;
 };
 
 const addNewColumn = async (listId, columnData) => {
-  return await todoListRepo.addNewColumn(listId, columnData);
+  const todoList = await todoListRepo.addNewColumn(listId, columnData);
+  const cardList = await cardListService.getCardListByTodoListId(listId);
+  return { todoList, cardList };
 };
 
 const deleteColumn = async (listId, columnId) => {
-  return await todoListRepo.deleteColumn(listId, columnId);
+  const todoList = await todoListRepo.deleteColumn(listId, columnId);
+  const cardList = await cardListService.getCardListByTodoListId(listId);
+  return { todoList, cardList };
 };
 
 const updateColumn = async (listId, columnData) => {
-  return await todoListRepo.updateColumn(listId, columnData);
+  const todoList = await todoListRepo.updateColumn(listId, columnData);
+  const cardList = await cardListService.getCardListByTodoListId(listId);
+  return { todoList, cardList };
 };
 
 module.exports = {
@@ -66,5 +72,5 @@ module.exports = {
   updateTodoList,
   addNewColumn,
   deleteColumn,
-  updateColumn,
+  updateColumn
 };

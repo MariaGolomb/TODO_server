@@ -5,7 +5,8 @@ const TodoList = require('./resources/todoLists/todoList.model');
 
 router.route('/').post(async (req, res, next) => {
   try {
-    const result = await cardListService.createCardList(req.body.cardList);
+    console.log('///');
+    const result = await cardListService.createCardList({ todoListId: 'qwe' });
     await res.status(200).json(result);
   } catch (error) {
     return next(error);
@@ -42,7 +43,7 @@ router.route('/push/:listId/:columnId').post(async (req, res, next) => {
     const result = await TodoList.findOneAndUpdate(
       { _id: listId, 'columns._id': newColumnId },
       {
-        $set: { 'columns.$': newColumn }
+        $set: { 'columns.$': newColumn },
       },
       { lean: true, new: true }
     );

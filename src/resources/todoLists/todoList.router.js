@@ -1,9 +1,15 @@
 const router = require('express').Router();
 const todoListService = require('./todoList.service');
+const columnRouter = require('./todoList.column.router');
+const cardListRouter = require('../cardsLists/cardList.router');
+
+router.use(columnRouter);
+router.use(cardListRouter);
 
 router.route('/').post(async (req, res, next) => {
   try {
-    const newList = await todoListService.createTodoList(req.body);
+    console.log('!');
+    const newList = await todoListService.createTodoList();
     await res.status(200).json(newList);
   } catch (error) {
     return next(error);
@@ -25,10 +31,10 @@ router.route('/').post(async (req, res, next) => {
 */
 
 router
-  .route('/:id')
+  .route('/:listId')
   .get(async (req, res, next) => {
     try {
-      const todoList = await todoListService.getTodoListById(req.params.id);
+      const todoList = await todoListService.getTodoListById(req.params.listId);
       await res.status(200).json(todoList);
     } catch (error) {
       return next(error);
@@ -36,13 +42,13 @@ router
   })
   .delete(async (req, res, next) => {
     try {
-      await todoListService.deleteTodoList(req.params.id);
+      await todoListService.deleteTodoList(req.params.listId);
       await res.status(200).send('ok');
     } catch (error) {
       return next(error);
     }
   });
-
+/*
 router
   .route('/:listId/column')
   .post(async (req, res, next) => {
@@ -80,5 +86,6 @@ router.route('/:listId/column/:columnId').delete(async (req, res, next) => {
     return next(error);
   }
 });
+*/
 
 module.exports = router;

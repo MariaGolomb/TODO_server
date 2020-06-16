@@ -11,7 +11,7 @@
         }
     ]
 }
-
+ 
 
 
 {
@@ -42,3 +42,61 @@
     cardList: {...}
 }
 
+///
+{
+    "cardList": {
+        "_id": "5ede62cad8ed153aa0f304d0",
+        "todoListId": "5edd4f2172feb22f306b792f",
+        "cards": [
+            {
+                "_id": "5ede62cad8ed153aa0f304d1",
+                "content": "ppppppppppppppppp",
+                "columnId": "123"
+            },
+            {
+                "_id": "5ede62cad8ed153aa0f304d2",
+                "content": "hxihc\nhkjjnl\nnknkjn\nbkjbkj",
+                "columnId": "125"
+            },
+            {
+                "_id": "5ede62cad8ed153aa0f304d3",
+                "content": "khlj\n00000000000\nbjnl",
+                "columnId": "126"
+            }
+        ]
+    }
+}
+///
+
+
+create new todoList:
+POST
+/list
+
+get todoList:
+GET
+/list/:todoListId
+
+Columns:
+create new column:
+
+'list/:todoListId/column'
+POST
+without body
+
+PUT
+{
+    "_id": "5edfec01c042754b24ff821e",
+    "title": "New column 0"
+}
+
+
+'list/:todoListId/column/:columnId'
+DELETE
+
+Cards:
+'list/:listId/card'
+POST
+
+'list/:listId/card/:cardId'
+DELETE

@@ -1,7 +1,7 @@
 const TodoList = require('./todoList.model');
 
-const createTodoList = async (params) => {
-  return TodoList.create(params);
+const createTodoList = async () => {
+  return TodoList.create({});
 };
 
 const getTodoListById = async (id) => {

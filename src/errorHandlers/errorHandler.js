@@ -1,4 +1,9 @@
+const writeLogs = require('./writeLogs');
+const { ERR_LOG_PATH } = require('../common/constants');
+
 const errorHandler = async (err, req, res, next) => {
+  writeLogs(ERR_LOG_PATH, err);
+
   if (err.status) {
     return await res.status(err.status).send(err.message);
   }
