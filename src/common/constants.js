@@ -14,10 +14,13 @@ const UNHANDLED_REJECTION_LOG_PATH = path.join(
   '../logs/unhandled_rejections.log'
 );
 
+const LOG_REQ_PATH = path.join(__dirname, '../logs/req_log.js');
+
 module.exports = {
   PORT,
   MONGO_CONNECTION_STRING,
   ERR_LOG_PATH,
   UNCAUGHT_ERR_LOG_PATH,
   UNHANDLED_REJECTION_LOG_PATH,
+  LOG_REQ_PATH,
 };
