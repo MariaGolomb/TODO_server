@@ -5,3 +5,9 @@
       =====================================
       Tue Jun 16 2020 21:42:59 GMT+0300 (GMT+03:00): Error: Oops!
     
+      =====================================
+      Mon Jun 22 2020 14:45:42 GMT+0300 (GMT+03:00): Error: querySrv ECONNREFUSED _mongodb._tcp.sandbox-c9cc3.mongodb.net
+    
+      =====================================
+      Mon Jun 22 2020 14:50:33 GMT+0300 (GMT+03:00): Error: querySrv ECONNREFUSED _mongodb._tcp.sandbox-c9cc3.mongodb.net
+    

@@ -16,6 +16,8 @@ const UNHANDLED_REJECTION_LOG_PATH = path.join(
 
 const LOG_REQ_PATH = path.join(__dirname, '../logs/req_log.js');
 
+const JWT_SECRET_KEY = 'tratata';
+
 module.exports = {
   PORT,
   MONGO_CONNECTION_STRING,
@@ -23,4 +25,5 @@ module.exports = {
   UNCAUGHT_ERR_LOG_PATH,
   UNHANDLED_REJECTION_LOG_PATH,
   LOG_REQ_PATH,
+  JWT_SECRET_KEY,
 };
