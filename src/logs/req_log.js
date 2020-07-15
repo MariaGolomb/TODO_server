@@ -212,3 +212,4 @@
 [21/Jun/2020:22:18:29 +0000] /list/5ee52b75faf494385c75e974/column/5eefdc53b494513f4c4e3cb9 DELETE - {}
 [21/Jun/2020:22:18:56 +0000] /list/5ee52b75faf494385c75e974/column PUT - {"_id":"5eefdb6cb494513f4c4e3cb3","title":"New Column"}
 [21/Jun/2020:22:19:19 +0000] /list/5ee52b75faf494385c75e974 GET - {}
+[15/Jul/2020:19:23:47 +0000] /list/5ee52b75faf494385c75e974 GET - {}

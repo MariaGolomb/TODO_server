@@ -1,8 +1,7 @@
 const jwt = require('jsonwebtoken');
 const createError = require('http-errors');
 const { promisify } = require('util');
-
-const { JWT_SECRET_KEY } = require('../common/constants');
+require('dotenv').config();
 
 const promisifyJwtVerify = promisify(jwt.verify);
 
@@ -26,7 +25,7 @@ const createToken = async (req, res, next) => {
   };
 
   try {
-    const token = await jwt.sign(payload, JWT_SECRET_KEY);
+    const token = await jwt.sign(payload, process.env.JWT_SECRET_KEY);
     res.status(200).json({ token });
   } catch (error) {
     return next(error);
@@ -49,7 +48,7 @@ const checkToken = async (req, res, next) => {
     }
 
     try {
-      await promisifyJwtVerify(tokenPayload, JWT_SECRET_KEY);
+      await promisifyJwtVerify(tokenPayload, process.env.JWT_SECRET_KEY);
       return next();
     } catch (error) {
       return next(createError.Unauthorized());

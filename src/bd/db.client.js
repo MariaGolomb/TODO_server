@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
-const { MONGO_CONNECTION_STRING } = require('../common/constants');
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 const connectToDb = async (serverListeningCB) => {
   try {
-    mongoose.connect(MONGO_CONNECTION_STRING, {
+    mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

@@ -1,6 +1,6 @@
 # TODO_server
 
-App is running on http://localhost:4000
+App is running on http://localhost:8000 or 4000
 
 Todo list:
     create new todoList:
