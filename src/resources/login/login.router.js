@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { loginService } = require('./login.service');
 const { createToken } = require('../../authentication/processToken');
+
 router.route('/').post(async (req, res, next) => {
   try {
     const isCorrect = await loginService.checkUser(
@@ -15,3 +16,5 @@ router.route('/').post(async (req, res, next) => {
     return next(error);
   }
 }, createToken());
+
+module.exports = router;

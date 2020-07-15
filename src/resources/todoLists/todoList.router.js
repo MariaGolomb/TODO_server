@@ -8,7 +8,6 @@ router.use(cardListRouter);
 
 router.route('/').post(async (req, res, next) => {
   try {
-    console.log('!');
     const newList = await todoListService.createTodoList();
     await res.status(200).json(newList);
   } catch (error) {
