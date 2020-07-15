@@ -2,9 +2,10 @@
   "name": "todo_server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "node src/server.js",
+    "startNodemon": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
